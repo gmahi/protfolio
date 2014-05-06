@@ -1,0 +1,244 @@
+	<!DOCTYPE HTML>
+	<!--[if lt IE 9]><html class="ie"><![endif]-->
+	<!--[if !IE]><html><![endif]-->
+
+
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title>Mahendra Gulla's portfolio</title>
+			
+			<!-- Viewport meta tag to prevent iPhone from scaling our page -->
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			
+			<link rel="stylesheet" href="./css/style.css"/>
+			
+			<!-- Normalize hide address bar for iOS and Android -->
+			<script src="./js/hideaddressbar.js"></script>
+			
+			<!-- Add media query support for IE8 and under. Must place media queries in external stylesheet -->
+			<script src="./js/respond.min.js"></script>
+			
+			<!-- Using picturefill to load conditional images and matchmedia to provide support for IE8 and below + older browsers -->
+			<script src="./js/picturefill.js"></script>
+			<script src="./js/matchmedia.js"></script>
+			<script src="script/jquery.1.9.1.js"></script>
+
+	<script type="text/javascript">
+
+	$("#contact").submit(function(e){
+	  e.preventDefault();
+	  var name = $("#name").val();
+	  var email = $("#email").val();
+	  var text = $("#message").val();
+	  var dataString = 'name=' + name + '&email=' + email + '&text=' + text;
+	  function isValidEmail(emailAddress) {
+	    var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+	    return pattern.test(emailAddress);
+	  };
+	 
+	  if (isValidEmail(email) && (text.length > 20) && (name.length > 1)){
+	    $.ajax({
+	    type: "POST",
+	    url: "/php/functions.php",
+	    data: dataString,
+	    success: function(){
+	      $('.success').fadeIn(1000);
+	    }
+	    });
+	  } else{
+	    $('.error').fadeIn(1000);
+	  }
+	 
+	  return false;
+	});
+
+
+
+			</script>
+
+			
+			<!--[if lt IE 9]>
+				<script src="./js/html5.js"></script>
+			<![endif]-->
+
+			<!--[if lt IE 9]>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+	<![endif]-->
+
+	<!--[if IE 8]>
+	<script src="./js/checkbox.js"></script>
+	<![endif]-->
+
+	<!--[if IE 6]>
+	<script src="./js/selectivizr-min.js"></script>
+	<![endif]-->
+
+
+
+				
+		<style type="text/css" media="all">
+		
+		
+				
+		</style>
+		</head>
+
+		<body lang="en">
+			<div id="container-nav">
+				<section id="nav" class="group wrapper">
+					<h3>Mahendra Gulla</h3>
+			        <!-- Checkbox Hack markup -->
+			        <input type="checkbox" id="toggle" />
+			        <label for="toggle" onclick>Menu</label>
+			        <!-- /Checkbox Hack markup -->
+			        <nav>
+			            <ul>
+			                <li><a href="#portfolio">Portfolio</a></li>
+			                <li><a href="#resume">Resume</a></li>
+			                <li><a href="./">LinkedIn Profile</a></li> <!-- No destination yet -->
+			                <li><a href="#contact">Contact</a></li>
+			            </ul>
+			        </nav>
+					
+				
+				</section>
+			</div>
+			<div id="container-header">
+				<header id="masthead" class="wrapper">
+					<figure id="mahi"> 
+					    <div data-picture data-alt="Mahendra Gulla">
+					        <div data-src="img/mahi-s.png"></div>
+					        <div data-src="img/mahi-m.png" data-media="(min-width: 45em)"></div>
+					        <div data-src="img/mahi-l.png" data-media="(min-width: 60em)"></div>
+					        <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+					        <noscript>
+					            <img src="img/mahi-s.png" alt="Mahendra Gulla">
+					        </noscript>
+					    </div>
+					</figure>
+					
+					<h1>Hi, I'm Mahendra</h1>
+
+					<h2>A Stuttgart-based SAP ABAP Developer with a passion for web and the mobile development</h2>
+				</header>
+			</div>
+			<div id="container-content">
+				<article id="content">
+				
+					<section id="portfolio" class="group">
+					
+						<header class="wrapper">
+							<h3>My Portfolio</h3>
+							<p>Some of the things I've been working on lately</p>
+						</header>
+						<article class="group wrapper">
+						    <h4>Prüfungs Amt</h4>
+						        <a href="/work/vitamin-t/">
+						            <figure>
+						                <img src="./img/webdynpro.jpg" alt="Prüfungsamt Verwaltung System">	
+						            </figure>
+						        </a>
+						</article>
+						
+					<article class="group wrapper">
+					<h4>Management-Tool für Werbebroschüren</h4>
+							<a href="/work/robohead/">
+								<figure>
+									<img src="./img/WerbBrochure.jpg" alt="Management tool Werbbroschüren">
+								</figure>
+							</a>
+					</article>
+					<article class="group wrapper">
+					<h4>Android App for Product list</h4>
+							<a href="/work/shareist/">
+								<figure>
+									<img src="./img/arndroidapp.jpg" alt="Android App">
+								</figure>
+							</a>
+					</article>
+					
+					</section>
+					
+					<section id="resume" class="group">
+				
+							<header class="wrapper">
+								<h3>My Resume</h3>
+								<p>Current/previous positions and skill set</p>
+							</header>
+						<article class="wrapper">	
+						<div class="box">
+							<h4>Currently</h4>
+
+							<h5>ABAP Developer</h5>
+
+							<h6>Looking for Job</h6>
+
+							<p> I am certified with SAP ABAP and Associate Business Foundation & Integration with SAP ERP 6.0. I am looking a beginner role in SAP Field. </p>
+						</div>
+						</article>
+						<article class="wrapper">
+						<div class="box">
+							<h4>Previously</h4>
+
+							<h5>ABAP Developer(Trainee)</h5>
+
+							<h6>Universität Duisburg-Essen</h6>
+
+							<p>Entwickelt und implementiert Uniersität Prüfungsamt Verwaltungs-
+						System für Prüfungen mit Web Dynpro, Data Dictionary, ABAP OO and Entwickelt und implementiert Management-Tool für Werbebroschüren, Suchprogramm, Web-basierte Ausgabe für diese Broschüren mit Data Dictionary, Business Server Pages(BSP), Module Pools, Selection Screens </p>
+						</div>
+						</article>
+						<article class="wrapper">
+						<div class="box">
+							<h4>Skills</h4>
+
+							<ul>
+								<li>ABAP/4 , ABAP OO, Web Dynpro, SAPUI5</li>
+								<li>HTML5 &amp; CSS3</li>
+								<li>Responsive Web Design</li>
+								<li>Mobile App (Native and Web) Design</li>
+								<li>Java, Python, Rails, Ruby,JavaScript, Jquery</li>
+								<li>XML, DTD, XML Schema, Xpath, Xquery, XSLT, JSON</li>
+								<li>RDBMS, IMDB, DB2, SQLite¸ Postgre, MYSQL</li>
+								<li>Hadoop, MapReduce, PiG, SQL</li>
+								<li>Hadoop, MapReduce, PiG, SQL</li>
+								<li>GIT</li>
+							</ul>
+						</div>
+						</article>
+							<footer class="wrapper">
+								<p>For a full work history, have a look at my LinkedIn Profile</p>
+							</footer>
+				
+					</section>
+			
+				</article>
+			</div>
+			<div id="container-footer">
+				<form id="contact">
+				    <fieldset class="wrapper">
+				        <legend>Contact</legend>
+				            <ul class="group">
+				                <li class="name">
+				                    <label for="name">Your Name</label>
+				                    <input type="text" id="name" name="name" />
+				                </li>
+				                <li class="email">
+				                    <label for="email">Your Email</label>
+				                    <input type="email" id="email" name="email" />
+				                </li>
+				                <li class="message">
+				                    <label for="message">Say Hello</label>
+				                    <textarea id="message" name="message"></textarea>
+				                </li>
+				            </ul>
+				        <input class="send" type="submit" name="submit" value="Send" />
+				    </fieldset>
+				</form>           
+				<footer id="colophon" class="wrapper">
+					<p>©2013 all rights reserved. </p>
+				</footer>
+			</div>	
+		</body>
+	</html>
